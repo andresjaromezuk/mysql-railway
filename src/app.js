@@ -7,7 +7,7 @@ const app = express();
 
 app.get('/', async (req, res)=>{
     let [user] = await pool.query('SELECT * FROM users')
-    res.json(user[0]);
+    res.json(user);
 })
 
 app.get('/create', (req, res)=>{
