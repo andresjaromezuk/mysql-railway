@@ -5,14 +5,14 @@ import {pool} from './db/db.js'
 const app = express();
 
 
-app.get('/', /* async */ (req, res)=>{
-    /* let [user] = await pool.query('SELECT * FROM users')
-    res.json(user); */
-    res.send('Hola')
+app.get('/', async  (req, res)=>{
+    let [user] = await pool.query('SELECT * FROM users')
+    res.json(user);
+    
 })
 
-app.get('/create', (req, res)=>{
-    pool.query('INSERT INTO users(name) VALUES ("John")')
+app.get('/create', async (req, res)=>{
+    await pool.query('INSERT INTO users(name) VALUES ("John")')
 })
 
 
